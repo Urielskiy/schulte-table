@@ -101,53 +101,79 @@ function App() {
         Таблиця Шульте
       </Typography>
 
-      <Box sx={{ display: 'flex', gap: 4, mb: 4 }}>
-        <Box sx={{ flex: 1 }}>
-          <Instructions />
-        </Box>
+      {cells.length === 0 ? (
+        // Показуємо інструкції та панель налаштувань
+        <Box sx={{ display: 'flex', gap: 4, mb: 4 }}>
+          <Box sx={{ flex: 1 }}>
+            <Instructions />
+          </Box>
 
-        <Box sx={{ 
-          width: '250px',
-          display: 'flex', 
-          flexDirection: 'column', 
-          gap: 3,
-          alignItems: 'stretch'
-        }}>
-          <Timer timerData={timerData} onTick={handleTimerTick} />
-          
-          <SelectPanel
-            settings={settings}
-            onSettingsChange={handleSettingsChange}
-            onGenerate={handleReset}
-            onStartStop={handleStartStop}
-          />
-
-          {settings.size >= 7 && (
-            <ColorSettings
-              settings={colorSettings}
-              onSettingsChange={setColorSettings}
-              tableSize={settings.size}
+          <Box sx={{ 
+            width: '250px',
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: 3,
+            alignItems: 'stretch'
+          }}>
+            <SelectPanel
+              settings={settings}
+              onSettingsChange={handleSettingsChange}
+              onGenerate={handleReset}
+              onStartStop={handleStartStop}
             />
-          )}
+
+            {settings.size >= 7 && (
+              <ColorSettings
+                settings={colorSettings}
+                onSettingsChange={setColorSettings}
+                tableSize={settings.size}
+              />
+            )}
+          </Box>
         </Box>
-      </Box>
+      ) : (
+        // Показуємо таблицю та панель керування
+        <Box sx={{ display: 'flex', gap: 4, alignItems: 'flex-start' }}>
+          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+            <TableGrid cells={cells} size={settings.size} />
+          </Box>
 
-      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
-        {cells.length > 0 && (
-          <TableGrid cells={cells} size={settings.size} />
-        )}
-      </Box>
+          <Box sx={{ 
+            width: '250px',
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: 3,
+            alignItems: 'stretch'
+          }}>
+            <Timer timerData={timerData} onTick={handleTimerTick} />
+            
+            <SelectPanel
+              settings={settings}
+              onSettingsChange={handleSettingsChange}
+              onGenerate={handleReset}
+              onStartStop={handleStartStop}
+            />
 
-      <Box sx={{ maxWidth: '250px', mx: 'auto' }}>
-        <Divider sx={{ mb: 2 }} />
-        <History 
-          entries={history}
-          onReset={() => {
-            setHistory([]);
-            localStorage.removeItem('schulteHistory');
-          }}
-        />
-      </Box>
+            {settings.size >= 7 && (
+              <ColorSettings
+                settings={colorSettings}
+                onSettingsChange={setColorSettings}
+                tableSize={settings.size}
+              />
+            )}
+
+            <Divider />
+
+            <History 
+              entries={history}
+              onReset={() => {
+                setHistory([]);
+                localStorage.removeItem('schulteHistory');
+              }}
+            />
+          </Box>
+        </Box>
+      )}
     </Container>
   );
 }
