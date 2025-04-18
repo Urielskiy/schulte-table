@@ -1,6 +1,7 @@
 {
   "short_name": "Таблиця Шульте",
   "name": "Таблиця Шульте - Тренажер",
+  "description": "Тренажер для розвитку швидкочитання, периферійного зору та концентрації уваги",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,8 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#2196f3",
+  "background_color": "#ffffff",
+  "categories": ["education", "productivity"],
+  "lang": "uk"
 }
