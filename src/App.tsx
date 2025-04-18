@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Container, Typography, Box, Divider } from '@mui/material';
+import Instructions from './components/Instructions';
 import SelectPanel from './components/SelectPanel';
 import ColorSettings from './components/ColorSettings';
 import TableGrid from './components/TableGrid';
@@ -99,6 +100,9 @@ function App() {
       <Typography variant="h4" component="h1" gutterBottom align="center">
         Таблиця Шульте
       </Typography>
+
+      <Instructions />
+
 
       <Box sx={{ display: 'flex', gap: 4 }}>
         <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
