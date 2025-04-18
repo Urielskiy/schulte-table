@@ -2,7 +2,7 @@
   "name": "schulte-table",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://laptopusa.github.io/schulte-table",
+  "homepage": "https://urielskiy.github.io/schulte-table",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
