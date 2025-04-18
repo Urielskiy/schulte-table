@@ -101,18 +101,13 @@ function App() {
         Таблиця Шульте
       </Typography>
 
-      <Instructions />
-
-
-      <Box sx={{ display: 'flex', gap: 4 }}>
-        <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          {cells.length > 0 && (
-            <TableGrid cells={cells} size={settings.size} />
-          )}
+      <Box sx={{ display: 'flex', gap: 4, mb: 4 }}>
+        <Box sx={{ flex: 1 }}>
+          <Instructions />
         </Box>
 
         <Box sx={{ 
-          width: '200px', 
+          width: '250px',
           display: 'flex', 
           flexDirection: 'column', 
           gap: 3,
@@ -134,17 +129,24 @@ function App() {
               tableSize={settings.size}
             />
           )}
-
-          <Divider sx={{ my: 2 }} />
-
-          <History 
-            entries={history}
-            onReset={() => {
-              setHistory([]);
-              localStorage.removeItem('schulteHistory');
-            }}
-          />
         </Box>
+      </Box>
+
+      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
+        {cells.length > 0 && (
+          <TableGrid cells={cells} size={settings.size} />
+        )}
+      </Box>
+
+      <Box sx={{ maxWidth: '250px', mx: 'auto' }}>
+        <Divider sx={{ mb: 2 }} />
+        <History 
+          entries={history}
+          onReset={() => {
+            setHistory([]);
+            localStorage.removeItem('schulteHistory');
+          }}
+        />
       </Box>
     </Container>
   );

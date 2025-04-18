@@ -50,6 +50,12 @@ const Instructions: React.FC = () => {
                     <li><strong>Натисніть "Обнулити"</strong>, щоб очистити історію.</li>
                 </Typography>
             </Box>
+
+            <Box sx={{ mt: 3 }}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: 1 }}>
+                    🔸 Після кожної зміни налаштувань натискайте кнопку ЗГЕНЕРУВАТИ!
+                </Typography>
+            </Box>
         </Paper>
     );
 };
